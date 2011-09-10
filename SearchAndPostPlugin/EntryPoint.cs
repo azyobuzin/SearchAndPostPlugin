@@ -44,7 +44,7 @@ namespace SearchAndPostPlugin
                         var service = ServiceDictionary.First(kvp =>
                             arg.Item2.StartsWith(kvp.Key + ":", StringComparison.InvariantCultureIgnoreCase));
 
-                        var address = string.Format(service.Value, arg.Item2.Substring(service.Key.Length + 1));
+                        var address = string.Format(service.Value, Uri.EscapeDataString(arg.Item2.Substring(service.Key.Length + 1)));
 
                         Browser.Start(address);
                     }
