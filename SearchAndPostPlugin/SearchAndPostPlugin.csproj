@@ -45,6 +45,10 @@
       <Project>{B0E2A5B6-420C-4437-B995-9E31149078E6}</Project>
       <Name>Acuerdo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mystique\Dulcet\Dulcet.csproj">
+      <Project>{8D33449B-0BD8-4873-B872-0E91FA7EBC4B}</Project>
+      <Name>Dulcet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mystique\Inscribe\Inscribe.csproj">
       <Project>{FE3EC1D6-4A61-4E6D-915B-5EED8AE046D2}</Project>
       <Name>Inscribe</Name>

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using Acuerdo.Plugin;
 using Inscribe.Common;
-using Inscribe.Storage;
+using Inscribe.Communication.Posting;
 
 namespace SearchAndPostPlugin
 {
@@ -36,27 +35,24 @@ namespace SearchAndPostPlugin
 
         public void Loaded()
         {
-            NotifyStorage.NotifyTextChanged += (sender, e) =>
+            PostOffice.UpdateInjection.Injection((arg, next, last) =>
             {
-                var match = Regex.Match(e.NotifyString,
-                    @"^ツイートしました:@[a-zA-Z0-9_]+:\s*(?<service>.+?)\s*:\s*(?<query>.+)$");
-
-                if (!match.Success) return;
-
-                KeyValuePair<string, string> service;
-
-                try
+                if (!arg.Item3.HasValue)
                 {
-                    service = ServiceDictionary.First(kvp =>
-                        kvp.Key.Equals(match.Groups["service"].ToString(), StringComparison.InvariantCultureIgnoreCase));
-                }
-                catch (InvalidOperationException)
-                {
-                    return;
+                    try
+                    {
+                        var service = ServiceDictionary.First(kvp =>
+                            arg.Item2.StartsWith(kvp.Key + ":", StringComparison.InvariantCultureIgnoreCase));
+
+                        var address = string.Format(service.Value, arg.Item2.Substring(service.Key.Length + 1));
+
+                        Browser.Start(address);
+                    }
+                    catch { }
                 }
 
-                Browser.Start(string.Format(service.Value, Uri.EscapeDataString(match.Groups["query"].ToString())));
-            };
+                return last(arg);//これであってる？
+            });
         }
 
         public IConfigurator ConfigurationInterface
