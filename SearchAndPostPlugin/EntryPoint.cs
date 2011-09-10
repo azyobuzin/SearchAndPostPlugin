@@ -51,7 +51,7 @@ namespace SearchAndPostPlugin
                     catch { }
                 }
 
-                return last(arg);//これであってる？
+                return next(arg);
             });
         }
 

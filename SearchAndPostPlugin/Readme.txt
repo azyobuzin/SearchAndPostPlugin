@@ -1,7 +1,7 @@
-﻿Search and Post plugin 1.1
+﻿Search and Post plugin 1.1.1
 作者：@azyobuzin
 ライセンス：MIT License
-動作環境：Krile1.9.3以上とそれが動くマシン
+動作環境：Krile 1.9.4以上とそれが動くマシン
 
 「Google:～」や「Wikipedia:～」とツイートするとブラウザが起動して勝手に検索してくれるKrile用プラグインです。
 pluginフォルダにSearchAndPostPlugin.dllをコピーすることで有効になります。
@@ -16,5 +16,6 @@ pluginフォルダにSearchAndPostPlugin.dllをコピーすることで有効に
 	追記）そのうち設定画面もつけたい。。
 
 ★変更履歴
-	1.1 (2011/09/10) KrileにInjection機能がついたので使ってみた
-	1.0 (2011/09/07) 初版
+	1.1.1 (2011/09/11) Krileのバグが修正されたので対応
+	1.1   (2011/09/10) KrileにInjection機能がついたので使ってみた
+	1.0   (2011/09/07) 初版
