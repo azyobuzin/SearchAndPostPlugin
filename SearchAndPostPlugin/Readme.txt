@@ -4,7 +4,7 @@
 動作環境：Krile 1.9.4以上とそれが動くマシン
 
 「Google:～」や「Wikipedia:～」とツイートするとブラウザが起動して勝手に検索してくれるKrile用プラグインです。
-pluginフォルダにSearchAndPostPlugin.dllをコピーすることで有効になります。
+pluginsフォルダにSearchAndPostPlugin.dllをコピーすることで有効になります。
 
 ★対応している検索サービス
 	・Google
