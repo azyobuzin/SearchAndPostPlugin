@@ -51,7 +51,7 @@ namespace SearchAndPostPlugin
                     catch { }
                 }
 
-                next(arg);
+                next.Invoke(arg);
             });
         }
 
