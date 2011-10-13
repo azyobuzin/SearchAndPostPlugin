@@ -51,7 +51,7 @@ namespace SearchAndPostPlugin
                     catch { }
                 }
 
-                return next(arg);
+                next(arg);
             });
         }
 
